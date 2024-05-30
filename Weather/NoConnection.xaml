@@ -1,0 +1,29 @@
+﻿<Window x:Class="Weather.NoConnection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Weather"
+        mc:Ignorable="d"
+        Closed="Window_Closed"
+        Title="Нет подключения!" Height="450" Width="800">
+    <Grid Background="#CAF0F8">
+        <StackPanel VerticalAlignment="Center">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="WifiOff" Width="100" Height="100" HorizontalAlignment="Center"/>
+            <TextBlock Text="Возникла неизвестная ошибка!" FontSize="30" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+            <TextBlock Text="Проверьте подключение к сети и попробуйте снова" FontSize="25"/>
+        </StackPanel>
+            <Grid Margin="150 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+        <Button Style="{StaticResource MaterialDesignFlatDarkBgButton}" Content="Завершить работу" Click="Shutdown"/>
+        <Button Grid.Column="1" Style="{StaticResource MaterialDesignFlatDarkButton}" Content="Попробовать снова" Click="Tryagain"/>
+            </Grid>
+        </StackPanel>
+        <TextBlock VerticalAlignment="Bottom" Foreground="Gray" Text="Возможная причина: Отсутствие стабильного подключения к сети" FontSize="20" x:Name="MayReason"/>
+    </Grid>
+</Window>
